@@ -1,13 +1,15 @@
-# Используем доступный образ OpenJDK от Eclipse Temurin
 FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
+
+# Устанавливаем Maven
+RUN apt-get update && apt-get install -y maven
 
 # Копируем проект
 COPY . .
 
 # Сборка проекта через Maven
-RUN ./mvnw clean package || mvn clean package
+RUN mvn clean package
 
 # Переменные окружения (Render их заменит)
 ENV TWITCH_TOKEN=""

@@ -1,5 +1,5 @@
 # Берём официальный образ с JDK 20
-FROM openjdk:20-jdk
+FROM openjdk:17-jdk
 
 # Создаём рабочую папку
 WORKDIR /app

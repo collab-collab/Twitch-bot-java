@@ -1,15 +1,15 @@
-# Используем доступный образ OpenJDK 17
-FROM openjdk:17
+# Используем доступный образ OpenJDK от Eclipse Temurin
+FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-# Копируем весь проект
+# Копируем проект
 COPY . .
 
-# Сборка проекта
+# Сборка проекта через Maven
 RUN ./mvnw clean package || mvn clean package
 
-# Переменные окружения
+# Переменные окружения (Render их заменит)
 ENV TWITCH_TOKEN=""
 ENV TWITCH_CHANNEL=""
 

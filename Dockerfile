@@ -1,18 +1,17 @@
-# Берём официальный образ с JDK 20
-FROM openjdk:17-jdk
+# Используем стабильный образ с JDK 17
+FROM openjdk:17-jdk-slim
 
-# Создаём рабочую папку
 WORKDIR /app
 
-# Копируем все файлы проекта в контейнер
+# Копируем весь проект
 COPY . .
 
-# Сборка проекта через Maven
+# Сборка проекта
 RUN ./mvnw clean package || mvn clean package
 
-# Переменные окружения будут заданы на сервере
+# Переменные окружения (будут заданы на Render)
 ENV TWITCH_TOKEN=""
 ENV TWITCH_CHANNEL=""
 
-# Команда для запуска бота
+# Запуск бота
 CMD ["java", "-cp", "target/twitch-java-bot-1.0.jar", "TwitchBot"]

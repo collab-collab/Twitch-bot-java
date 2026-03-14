@@ -1,3 +1,5 @@
+package com.example.bot;
+
 
 import com.github.twitch4j.TwitchClient;
 import com.github.twitch4j.TwitchClientBuilder;

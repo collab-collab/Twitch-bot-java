@@ -1,5 +1,5 @@
-# Используем стабильный образ с JDK 17
-FROM openjdk:17-jdk-slim
+# Используем доступный образ OpenJDK 17
+FROM openjdk:17
 
 WORKDIR /app
 
@@ -9,7 +9,7 @@ COPY . .
 # Сборка проекта
 RUN ./mvnw clean package || mvn clean package
 
-# Переменные окружения (будут заданы на Render)
+# Переменные окружения
 ENV TWITCH_TOKEN=""
 ENV TWITCH_CHANNEL=""
 

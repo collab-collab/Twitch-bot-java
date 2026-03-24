@@ -1,4 +1,4 @@
-package com.example.bot;
+package src.main.java.com.example.bot;
 
 
 import com.github.twitch4j.TwitchClient;
